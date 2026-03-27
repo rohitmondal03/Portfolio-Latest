@@ -279,5 +279,7 @@ const Circle = forwardRef<
   )
 })
 
+Circle.displayName = "Circle"
+
 
 export default LinksPage

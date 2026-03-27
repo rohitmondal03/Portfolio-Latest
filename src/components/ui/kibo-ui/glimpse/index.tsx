@@ -56,6 +56,7 @@ export const GlimpseImage = ({
   ...props
 }: GlimpseImageProps) => (
   // biome-ignore lint/performance/noImgElement: "Kibo UI is framework agnostic"
+  // eslint-disable-next-line @next/next/no-img-element
   <img
     alt={alt ?? ""}
     className={cn(

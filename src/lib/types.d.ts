@@ -1,6 +1,4 @@
-import { DeveloperIconProps } from "developer-icons/dist/icon"
-import { LucideIcon } from "lucide-react"
-import React from "react"
+import { type ReactNode } from "react"
 
 export interface ProjectType {
   title: string
@@ -14,7 +12,7 @@ export interface ProjectType {
 export interface PersonalLinkType {
   title: string
   href: string
-  icon: React.ReactNode
-  darkThemeIcon?: React.ReactNode
+  icon: ReactNode
+  darkThemeIcon?: ReactNode
 }
 

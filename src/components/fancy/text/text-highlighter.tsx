@@ -3,7 +3,6 @@
 import {
   ElementType,
   forwardRef,
-  useCallback,
   useEffect,
   useImperativeHandle,
   useMemo,
@@ -109,11 +108,8 @@ export const TextHighlighter = forwardRef<
       setCurrentDirection(direction)
     }, [direction])
 
-    const isInView = () => {
-      return triggerType === "inView"
-        ? useInView(componentRef, useInViewOptions)
-        : false
-    }
+    // useInView must be called at the top level (Rules of Hooks)
+    const inViewResult = useInView(componentRef, useInViewOptions)
 
     useImperativeHandle(ref, () => ({
       animate: (animationDirection?: HighlightDirection) => {
@@ -129,7 +125,7 @@ export const TextHighlighter = forwardRef<
       triggerType === "hover"
         ? isHovered
         : triggerType === "inView"
-          ? isInView()
+          ? inViewResult
           : triggerType === "ref"
             ? isAnimating
             : triggerType === "auto"
@@ -171,9 +167,9 @@ export const TextHighlighter = forwardRef<
       }
     }
 
-    const animatedSize = useMemo(() => getBackgroundSize(shouldAnimate), [shouldAnimate, currentDirection])
-    const initialSize = useMemo(() => getBackgroundSize(false), [currentDirection])
-    const backgroundPosition = useMemo(() => getBackgroundPosition(), [currentDirection])
+    const animatedSize = useMemo(() => getBackgroundSize(shouldAnimate), [shouldAnimate, getBackgroundSize])
+    const initialSize = useMemo(() => getBackgroundSize(false), [getBackgroundSize])
+    const backgroundPosition = useMemo(() => getBackgroundPosition(), [getBackgroundPosition])
 
     const highlightStyle = {
       backgroundImage: `linear-gradient(${highlightColor}, ${highlightColor})`,
