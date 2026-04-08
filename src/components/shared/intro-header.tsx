@@ -4,16 +4,56 @@ import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
-import { ArrowDown, ArrowUpRight } from 'lucide-react'
+import { useTheme } from 'next-themes'
+import { ArrowDown, ArrowUpRight, FileTextIcon } from 'lucide-react'
+import { GitHubDark, GitHubLight, Hashnode, Instagram, LinkedIn, XDark, XLight } from "developer-icons";
 import { cn } from '@/lib/utils'
 import { NAV_LINKS } from '@/lib/constants'
+import type { PersonalLinkType } from '@/lib/types'
 import { buttonVariants } from '../ui/button'
+import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 import { TextLoop } from '../ui/text-loop'
 import { TextRoll } from '../ui/text-roll'
 import { InView } from '../ui/in-view'
 
 function IntroHeader() {
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const { theme } = useTheme();
+
+  const PERSONAL_LINKS: PersonalLinkType[] = [
+    {
+      title: "Resume/CV",
+      href: "https://flowcv.com/resume/vgsaaqno90",
+      icon: <FileTextIcon />,
+    },
+    {
+      title: "Github",
+      href: "https://github.com/rohitmondal03",
+      darkThemeIcon: <GitHubDark />,
+      icon: <GitHubLight />,
+    },
+    {
+      title: "Twitter",
+      href: "https://twitter.com/rohitmondal03",
+      darkThemeIcon: <XDark />,
+      icon: <XLight />,
+    },
+    {
+      title: "Linkedin",
+      href: "https://www.linkedin.com/in/rohitmondal03/",
+      icon: <LinkedIn />,
+    },
+    {
+      title: "Instagram",
+      href: "https://www.instagram.com/rohitmondal03/",
+      icon: <Instagram />,
+    },
+    {
+      title: "Hashnode",
+      href: "",
+      icon: <Hashnode />,
+    },
+  ]
 
   return (
     <InView
@@ -67,6 +107,32 @@ function IntroHeader() {
           </div>
         </div>
 
+        {/* Personal Links */}
+        <div id='links' className="flex items-center flex-1 flex-wrap gap-5">
+          {PERSONAL_LINKS.map((link, idx) => (
+            <Tooltip disableHoverableContent>
+              <TooltipTrigger>
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  className={cn(
+                    buttonVariants({ variant: "default", size: "lg" }),
+                    "flex items-center gap-2",
+                    "hover:scale-[1.02] transition-all ease-out duration-300",
+                    idx % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"
+                  )}
+                >
+                  {theme === "dark" && link.darkThemeIcon ? link.darkThemeIcon : link.icon}
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                {link.title}
+              </TooltipContent>
+            </Tooltip>
+          ))}
+        </div>
+
         {/* Navigation */}
         <nav className="flex items-center justify-center sm:justify-start flex-wrap flex-1 gap-1 sm:gap-1.5">
           {NAV_LINKS.map((link) =>
@@ -79,7 +145,7 @@ function IntroHeader() {
               )}
             >
               {link.title}
-              <ArrowUpRight className='opacity-50 w-4 h-4' />
+              <ArrowUpRight className='opacity-50 size-4' />
             </Link>
           )}
           <Link
@@ -90,7 +156,7 @@ function IntroHeader() {
             )}
           >
             links
-            <ArrowDown className='opacity-50 w-4 h-4' />
+            <ArrowDown className='opacity-50 size-4' />
           </Link>
         </nav>
       </header>

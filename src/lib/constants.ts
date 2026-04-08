@@ -1,4 +1,7 @@
-import type { ProjectType } from "./types"
+import type { PersonalLinkType, ProjectType } from "./types"
+import { GitHubDark, GitHubLight, Hashnode, Instagram, LinkedIn, XDark, XLight } from "developer-icons";
+import { ArrowDown, ArrowUpRight, FileTextIcon } from 'lucide-react'
+
 
 export const NAV_LINKS = [
   { path: "/", title: "about" },

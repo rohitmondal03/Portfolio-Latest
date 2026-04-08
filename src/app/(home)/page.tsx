@@ -74,7 +74,7 @@ export default function HomePage() {
           </h1>
           <p>As a {" "}
             <TextHighlighter
-              className={`rounded-[0.3em] px-px`}
+              className={`rounded-[0.3em] px-px font-medium`}
               transition={{ type: "spring", duration: 1, delay: 0.5, bounce: 0 } as Transition}
               highlightColor={theme === "dark" || !theme ? "#FF2399FF" : "#FF97CEFF"}
               useInViewOptions={{ once: true, initial: true, amount: 0.1 }}
@@ -88,7 +88,7 @@ export default function HomePage() {
             <p>
               Passionate about modern web technologies, I thrive on using tools like{" "}
               <TextHighlighter
-                className={`rounded-[0.3em] px-px`}
+                className={`rounded-[0.3em] px-px font-medium`}
                 transition={{ type: "spring", duration: 1, delay: 1, bounce: 0 } as Transition}
                 highlightColor={theme === "dark" ? "#FF2399FF" : "#FF97CEFF"}
                 useInViewOptions={{ once: true, initial: true, amount: 0.5 }}

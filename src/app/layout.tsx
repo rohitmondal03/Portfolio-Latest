@@ -8,6 +8,7 @@ import Footer from "@/components/shared/footer";
 import ClientLayout from "@/components/shared/client-layout";
 import { ThemeSwitcher } from "@/components/button/theme-switcher";
 import "./globals.css";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -88,20 +89,22 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <main className="mx-4 mb-16 lg:mb-40 mt-2 sm:mt-12 space-y-16">
-              <InView variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 }
-              }}>
-                <IntroHeader />
-              </InView>
-              {children}
-            </main>
-            <Footer />
-            {/* Fixed floating theme toggle — always visible on all screen sizes */}
-            <div className="fixed bottom-5 right-5 z-50">
-              <ThemeSwitcher />
-            </div>
+            <TooltipProvider>
+              <main className="mx-4 mb-16 lg:mb-40 mt-2 sm:mt-12 space-y-16">
+                <InView variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 }
+                }}>
+                  <IntroHeader />
+                </InView>
+                {children}
+              </main>
+              <Footer />
+              {/* Fixed floating theme toggle — always visible on all screen sizes */}
+              <div className="fixed bottom-5 right-5 z-50">
+                <ThemeSwitcher />
+              </div>
+            </TooltipProvider>
           </ThemeProvider>
         </ClientLayout>
       </body>
