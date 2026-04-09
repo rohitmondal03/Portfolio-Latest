@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
-import { ArrowDown, ArrowUpRight, FileTextIcon } from 'lucide-react'
+import { ArrowUpRight, FileTextIcon } from 'lucide-react'
 import { GitHubDark, GitHubLight, Hashnode, Instagram, LinkedIn, XDark, XLight } from "developer-icons";
 import { cn } from '@/lib/utils'
 import { NAV_LINKS } from '@/lib/constants'
@@ -64,9 +64,9 @@ function IntroHeader() {
       }}
       once={true}
     >
-      <header className="w-full space-y-6 md:space-y-8 border-b-2 pb-4 md:pb-2">
+      <header className="w-full space-y-6 md:space-y-10 border-b-2 pb-4 md:pb-2">
         {/* Profile Section */}
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-4 md:gap-0">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-center gap-4 md:gap-0">
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             <Link
               href={"/"}
@@ -108,12 +108,12 @@ function IntroHeader() {
         </div>
 
         {/* Personal Links */}
-        <div id='links' className="flex items-center flex-1 flex-wrap gap-5">
+        <div id='links' className="grid grid-cols-3 sm:grid-cols-6 gap-5 w-fit mx-auto">
+          {/* <div id='links' className="flex items-center justify-center md:justify-center flex-1 flex-wrap gap-5"> */}
           {PERSONAL_LINKS.map((link, idx) => (
-            <Tooltip disableHoverableContent>
+            <Tooltip disableHoverableContent key={link.href}>
               <TooltipTrigger>
                 <Link
-                  key={link.href}
                   href={link.href}
                   target="_blank"
                   className={cn(
@@ -134,21 +134,22 @@ function IntroHeader() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex items-center justify-center sm:justify-start flex-wrap flex-1 gap-1 sm:gap-1.5">
+        <nav className="flex items-center justify-center md:justify-center flex-wrap flex-1 gap-1 sm:gap-1.5">
           {NAV_LINKS.map((link) =>
             <Link
               key={link.path}
               href={link.path}
               className={cn(
                 buttonVariants({ variant: pathname === link.path ? "secondary" : "ghost" }),
-                "text-sm sm:text-base gap-1 px-2 sm:px-4"
+                "text-sm sm:text-base gap-1 px-2 sm:px-4",
+                pathname === link.path && "border border-zinc-500",
               )}
             >
               {link.title}
               <ArrowUpRight className='opacity-50 size-4' />
             </Link>
           )}
-          <Link
+          {/* <Link
             href={"/#links"}
             className={cn(
               buttonVariants({ variant: "link" }),
@@ -157,7 +158,7 @@ function IntroHeader() {
           >
             links
             <ArrowDown className='opacity-50 size-4' />
-          </Link>
+          </Link> */}
         </nav>
       </header>
     </InView>

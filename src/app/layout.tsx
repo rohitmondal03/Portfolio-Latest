@@ -1,3 +1,4 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ReactLenis } from 'lenis/react'
@@ -7,7 +8,6 @@ import IntroHeader from "@/components/shared/intro-header";
 import Footer from "@/components/shared/footer";
 import ClientLayout from "@/components/shared/client-layout";
 import { ThemeSwitcher } from "@/components/button/theme-switcher";
-import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
@@ -90,7 +90,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <TooltipProvider>
-              <main className="mx-4 mb-16 lg:mb-40 mt-2 sm:mt-12 space-y-16">
+              <main className="mx-4 mb-10 lg:mb-20 mt-2 sm:mt-12 space-y-16">
                 <InView variants={{
                   hidden: { opacity: 0 },
                   visible: { opacity: 1 }

@@ -8,7 +8,7 @@ function Footer() {
       <div className="flex flex-wrap items-center justify-center gap-1 sm:justify-around">
         <Copyright />
         <Dot />
-        <p className='font-s'>Rohit Mondal</p>
+        <p className='font-mono'>Rohit Mondal</p>
         <Dot />
         <p>{new Date().getFullYear()}</p>
       </div>

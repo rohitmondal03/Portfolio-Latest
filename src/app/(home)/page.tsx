@@ -1,23 +1,22 @@
 "use client"
 
+import Link from "next/link";
 import { useTheme } from "next-themes";
 import { type UseInViewOptions, type Transition } from "framer-motion";
 import { GitHubDark, GitHubLight, Hashnode, Instagram, LinkedIn, XDark, XLight } from "developer-icons";
 import { FileText } from "lucide-react"
 import { Separator } from "@/components/ui/separator";
 import { InView } from "@/components/ui/in-view";
-import TextHighlighter from "@/components/fancy/text/text-highlighter";
 import { PersonalLinkType } from "@/lib/types";
 import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-interface TextHighlighter {
-  transition: Transition;
-  highlightClass: string;
-  inViewOptions: UseInViewOptions;
-  highlightColor: string;
-}
+// interface TextHighlighter {
+//   transition: Transition;
+//   highlightClass: string;
+//   inViewOptions: UseInViewOptions;
+//   highlightColor: string;
+// }
 
 export default function HomePage() {
   const { theme } = useTheme();
@@ -73,32 +72,32 @@ export default function HomePage() {
             <span>About Me</span>.
           </h1>
           <p>As a {" "}
-            <TextHighlighter
-              className={`rounded-[0.3em] px-px font-medium`}
-              transition={{ type: "spring", duration: 1, delay: 0.5, bounce: 0 } as Transition}
-              highlightColor={theme === "dark" || !theme ? "#FF2399FF" : "#FF97CEFF"}
-              useInViewOptions={{ once: true, initial: true, amount: 0.1 }}
-            >
-              {" "}Frontend Developer{" "}
-            </TextHighlighter>
+            <span className={cn(
+              "font-semibold underline decoration-double underline-offset-2 text-orange-400",
+              theme === "dark" ? "text-pink-400" : "text-pink-600",
+            )}>
+              Frontend focused Full-Stack Developer
+            </span>
             , I specialize in building applications that combine performance, scalability, and modern design. My work often bridges frontend logic with backend workflows, reflecting my ability to create seamless, reliable, and user-friendly experiences.
           </p>
           <Separator className='bg-zinc-700 dark:bg-zinc-500' />
           <div className="space-y-8">
             <p>
               Passionate about modern web technologies, I thrive on using tools like{" "}
-              <TextHighlighter
-                className={`rounded-[0.3em] px-px font-medium`}
-                transition={{ type: "spring", duration: 1, delay: 1, bounce: 0 } as Transition}
-                highlightColor={theme === "dark" ? "#FF2399FF" : "#FF97CEFF"}
-                useInViewOptions={{ once: true, initial: true, amount: 0.5 }}
-              >
+              <span className={cn(
+                "font-semibold underline decoration-double underline-offset-2 text-orange-400",
+                theme === "dark" ? "text-pink-400" : "text-pink-600",
+              )}>
                 Next.js, TypeScript, TailwindCSS, Monorepo
-              </TextHighlighter>
+              </span>
               {" "}and{" "}
               <Link
                 href={"/tech"}
-                className={`font-bold underline decoration-wavy underline-offset-4 ${theme === "dark" ? "text-orange-400" : "text-orange-600"}`}
+                className={cn(
+                  "font-bold underline decoration-wavy underline-offset-2",
+                  "hover:scale-[1.03] transition ease-out duration-200",
+                  theme === "dark" ? "text-orange-400" : "text-orange-600",
+                )}
               >
                 other modern tools
               </Link>
@@ -109,7 +108,7 @@ export default function HomePage() {
             </p>
           </div>
           <Separator className='bg-zinc-700 dark:bg-zinc-500' />
-          <div className="space-y-8">
+          {/* <div className="space-y-8">
             <p className="text-xl font-medium">
               You can connect with me through the links below 😀😁
             </p>
@@ -125,11 +124,12 @@ export default function HomePage() {
                     "hover:scale-[1.02] transition-all ease-out duration-300"
                   )}
                 >
-                  {theme === "dark" && link.darkThemeIcon ? link.darkThemeIcon : link.icon} {link.title}
+                  {theme === "dark" && link.darkThemeIcon ? link.darkThemeIcon : link.icon}
+                  {link.title}
                 </Link>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </InView>
