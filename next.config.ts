@@ -12,6 +12,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*', // Catches all routes on the old domain
+        destination: 'https://rohit-og-portfolio.vercel.app/:path*', // Your other Vercel project's URL
+        permanent: true, // This sets the status code to 308
+      },
+    ];
+  },
 };
 
 export default nextConfig;
