@@ -84,7 +84,7 @@ function IntroHeader() {
               <TextRoll className='text-2xl sm:text-3xl font-semibold'>
                 Rohit Mondal
               </TextRoll>
-              <div className='flex items-center justify-center sm:justify-start gap-1 flex-wrap'>
+              <div className='flex items-center justify-start gap-1 flex-wrap'>
                 <p className="text-zinc-500 text-base sm:text-lg">
                   Developer-
                 </p>
@@ -134,7 +134,8 @@ function IntroHeader() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex items-center justify-center md:justify-center flex-wrap flex-1 gap-1 sm:gap-1.5">
+        <nav className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+          {/* <nav className="flex items-center justify-center md:justify-center flex-wrap flex-1 gap-1 sm:gap-1.5"> */}
           {NAV_LINKS.map((link) =>
             <Link
               key={link.path}
