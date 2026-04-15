@@ -12,7 +12,7 @@ export interface ProjectType {
 export interface PersonalLinkType {
   title: string
   href: string
-  icon: ReactNode
-  darkThemeIcon?: ReactNode
+  icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>
+  darkThemeIcon?: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>
 }
 

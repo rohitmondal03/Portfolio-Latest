@@ -9,6 +9,7 @@ import Footer from "@/components/shared/footer";
 import ClientLayout from "@/components/shared/client-layout";
 import { ThemeSwitcher } from "@/components/button/theme-switcher";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { APP_URL } from "@/lib/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,26 +24,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rohitmondal.com"), // Update with your actual domain
+  metadataBase: new URL(APP_URL), // Update with your actual domain
   title: {
     default: "Rohit Mondal | Portfolio",
     template: "%s | Rohit Mondal",
   },
   description: "Personal portfolio of Rohit Mondal, a passionate software developer specializing in modern web technologies and building scalable applications.",
   keywords: ["Rohit Mondal", "Portfolio", "Web Developer", "Software Engineer", "Frontend Developer", "Full Stack", "React", "Next.js"],
-  authors: [{ name: "Rohit Mondal", url: "https://rohitmondal.com" }],
+  authors: [{ name: "Rohit Mondal", url: APP_URL }],
   creator: "Rohit Mondal",
   publisher: "Rohit Mondal",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://rohitmondal.com",
+    url: APP_URL,
     title: "Rohit Mondal | Portfolio",
     description: "Personal portfolio of Rohit Mondal, a passionate software developer specializing in modern web technologies.",
     siteName: "Rohit Mondal",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Rohit Mondal | Portfolio",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Rohit Mondal | Portfolio",
     description: "Personal portfolio of Rohit Mondal, a passionate software developer specializing in modern web technologies.",
-    images: ["/og-image.jpg"],
+    images: ["/opengraph-image.jpg"],
     creator: "@rohitmondal", // Update with your actual Twitter/X handle
   },
   robots: {
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://rohitmondal.com",
+    canonical: APP_URL,
   },
 };
 
@@ -79,7 +80,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
       <ReactLenis root />
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased lg:max-w-4xl md:max-w-full mx-auto scroll-smooth`}>
         <ClientLayout>

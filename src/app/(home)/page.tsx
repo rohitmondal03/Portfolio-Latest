@@ -2,13 +2,11 @@
 
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { type UseInViewOptions, type Transition } from "framer-motion";
 import { GitHubDark, GitHubLight, Hashnode, Instagram, LinkedIn, XDark, XLight } from "developer-icons";
 import { FileText } from "lucide-react"
 import { Separator } from "@/components/ui/separator";
 import { InView } from "@/components/ui/in-view";
 import { PersonalLinkType } from "@/lib/types";
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 // interface TextHighlighter {
