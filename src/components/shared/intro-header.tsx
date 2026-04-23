@@ -1,6 +1,5 @@
 "use client"
 
-import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
@@ -33,25 +32,25 @@ function IntroHeader() {
       icon: <GitHubLight />,
     },
     {
-      title: "Twitter",
-      href: "https://twitter.com/rohitmondal03",
-      darkThemeIcon: <XDark />,
-      icon: <XLight />,
-    },
-    {
       title: "Linkedin",
       href: "https://www.linkedin.com/in/rohitmondal03/",
       icon: <LinkedIn />,
     },
     {
+      title: "Blogs",
+      href: "https://rohitmondallblog.hashnode.dev/",
+      icon: <Hashnode />,
+    },
+    {
+      title: "Twitter",
+      href: "https://x.com/RohitMo62534745",
+      darkThemeIcon: <XDark />,
+      icon: <XLight />,
+    },
+    {
       title: "Instagram",
       href: "https://www.instagram.com/rohitmondal03/",
       icon: <Instagram />,
-    },
-    {
-      title: "Hashnode",
-      href: "",
-      icon: <Hashnode />,
     },
   ]
 
