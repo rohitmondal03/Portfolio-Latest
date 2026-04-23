@@ -1,5 +1,4 @@
-import React from 'react'
-import { projects } from '@/lib/constants'
+import { PROJECTS } from '@/lib/constants'
 import { InView } from '@/components/ui/in-view'
 import { ProjectCard } from '@/components/shared/project-card'
 
@@ -28,7 +27,7 @@ export default async function ProjectsPage() {
 
           {/* Project grid */}
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-            {projects.map((project, index) => (
+            {PROJECTS.map((project, index) => (
               <ProjectCard
                 key={project.link}
                 {...project}

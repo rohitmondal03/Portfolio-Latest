@@ -19,11 +19,11 @@ export const NAV_LINKS = [
   // { path: "/#links", title: "links" },
 ]
 
-export const projects: ProjectType[] = [
+export const PROJECTS: ProjectType[] = [
   {
     title: "URLab",
     link: "https://urlab-live.vercel.app",
-    description: "A minimalistic link management SaaS — shorten, track, and organise your URLs in one clean dashboard.",
+    description: "A minimalistic link management SaaS — manage and organise important URLs in one clean dashboard.",
     emoji: "🔗",
     tags: ["Next.js", "TypeScript", "Supabase", "Tailwind", "shadcn", "Tanstack Query"],
     githubLink: "https://github.com/rohitmondal03/urlab",
@@ -31,7 +31,7 @@ export const projects: ProjectType[] = [
   {
     title: "Konfig",
     link: "https://github.com/rohitmondal03/konfig",
-    description: "Configuration management for modern apps. Define, validate, and share config schemas across your entire team.",
+    description: "Configuration management for modern typescript apps. Define, validate, and share config schemas across your entire team.",
     emoji: "⚙️",
     tags: ["Turborepo/Monorepo", "TypeScript", "Node.js", "Express.js", "CLI", "Next.js"],
     githubLink: "https://github.com/rohitmondal03/konfig",
